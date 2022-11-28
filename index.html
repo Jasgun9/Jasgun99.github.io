@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+  <style>
+    .hidden{
+      display: hidden;
+    }
+  </style>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">WannaWatchMovie</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+
+              
+              
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="later.html">Later</a>
+              </li>
+              
+            </ul>
+                
+
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" id="searchTxt" placeholder="Search" aria-label="Search">
+              </form>
+
+              </div>
+              </div>
+              </nav>
+
+
+    <div class="container my-3">
+        <h1>Movies: -> <span id="typed"></span></h1>
+
+
+        
+        <div class="my-2" id="status"></div>
+        <div id="alert"></div>
+
+        
+        <!-- Button trigger modal -->
+        <button type="button mx-2" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add a movie in list
+        </button>
+
+
+
+        
+        <div class="my-2" ><table class="hidden table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Type</th>
+              <th scope="col">Origin</th>
+              <th scope="col">Watched On</th>
+              <th scope="col">*</th>
+            </tr>
+          </thead>
+          <tbody id="Movies">
+
+            </tbody>
+        </table>
+          </div>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class=" mb-3">
+
+           
+
+
+            <div class="mb-3">
+                <label for="NameInput" class="form-label">Movie Name</label>
+                <input type="text" class="form-control" required id="NameInput" aria-describedby="emailHelp">
+              </div>
+              
+              <div class=" mb-3">
+
+                <label for="Origin" class="form-label">Origin</label><br>
+                <select class="form-select" required id="Origin">
+                  <option value="Hollywood">Hollywood</option>
+                  <option value="Bollywood">Bollywood</option>
+                </select>
+              </div>
+
+
+
+              <div class=" mb-3">
+
+                <label for="Type" class="form-label">Type</label><br>
+                <select class="form-select" required id="Type">
+                  <option value="Movie">Movie</option>
+                  <option value="Series">Series</option>
+                </select>
+              </div>
+
+
+              <label for="date" class="form-label">Watched On: </label><br>
+              <input type="date" name="Date" id="date">
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button id="Adding" data-bs-dismiss="modal" type="button" onclick="Add()" class="btn btn-success">Add Movie</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+
+    <script src="/typed.min.js" async defer></script>
+    <script>
+        window.onload = function () {
+            console.log("loaded")
+            var typed = new Typed('#typed', {
+                strings: ["Wanna Watch Movie", "Wanna save your watched movies","Wanna add to later watch movie in the list", "You are at the right place"],
+                backSpeed: 15,
+                smartBackspace: true,
+                backDelay: 1200,
+                startDelay: 1000,
+                typeSpeed: 25,
+                loop: true,
+            });
+        };
+    </script>
+
+  </body>
+</html>
